@@ -11,11 +11,24 @@ class Solution:
         #while left and right do not cross
         while left < right:
             #calculate area
-            height = min(left, right)
-            length = right - left
-            current_area = height * length
+            a_height = min(height[left], height[right])
+            a_length = right - left
+            print(a_height, a_length)
+            current_area = a_height * a_length
+            print("current area", current_area)
             max_area = max(current_area, max_area)
+            print(max_area)
             
             #decide which pointer to move
             #minimum item limits the area so increment the min
+            
+            if height[left] < height[right]:
+                left += 1
+                print("inc left")
+                
+            else:
+                right -= 1
+                print("dec right")
+        
+        return max_area
         
