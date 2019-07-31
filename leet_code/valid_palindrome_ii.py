@@ -2,25 +2,33 @@ class Solution:
     def validPalindrome(self, s: str) -> bool:
         #abca --> acba
         #abcca --> ab
-        
-        if len(str) == 1:
-            return True
-        
-        if not str:
+        if not s:
             return False
         
+        if len(s) == 1:
+            return True
+
         i = 0
-        j = len(str) - 1
+        j = len(s) - 1
         extra_letter = 0
         
-        while pointers have not crossed:
-            compare the letters at the current pointers
-            if str[i] == str [j]:
-                increase i
-                decrease j
+        while i < j:
+            print(i, j, extra_letter)
+            #compare the letters at the current pointers
+            if s[i] == s[j]:
+                i +=1 
+                j -= 1
             else:
-                if str[i] == str[j-1]:
+                if s[i] == s[j-1]:
                     extra_letter += 1
                     j -= 1
-                elif str[i+1]
+                elif s[i+1] == s[j]:
+                    extra_letter += 1
+                    i += 1
+                else:
+                    return False
+            if extra_letter > 1:
+                return False
+        
+        return True
         
