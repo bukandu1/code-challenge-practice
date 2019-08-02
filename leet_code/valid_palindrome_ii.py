@@ -4,31 +4,24 @@ class Solution:
         #abcca --> ab
         if not s:
             return False
-        
-        if len(s) == 1:
-            return True
 
-        i = 0
-        j = len(s) - 1
+        backward_string = s[::-1]
+        print(backward_string)
         extra_letter = 0
         
-        while i < j:
-            print(i, j, extra_letter)
+        i = 0
+        j = len(backward_string) - 1
+        while i < len(backward_string):
             #compare the letters at the current pointers
-            if s[i] == s[j]:
-                i +=1 
-                j -= 1
+            if s[i] != backward_string[j]:
+                extra_letter += 1
+                j-=1
             else:
-                if s[i] == s[j-1]:
-                    extra_letter += 1
-                    j -= 1
-                elif s[i+1] == s[j]:
-                    extra_letter += 1
-                    i += 1
-                else:
+                i+=1
+                j-=1
+                    
+            if extra_letter > 1: 
                     return False
-            if extra_letter > 1:
-                return False
-        
+
         return True
         
