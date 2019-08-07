@@ -4,6 +4,12 @@ class LinkedList():
         self.head = head_node
         self.tail = head_node
 
+    def traverse(self):
+        current = self.head
+        while current:
+            print(current.value)
+            current = current.nextLL
+
 class Node():
     def __init__(self, value):
         self.value = value
@@ -13,23 +19,51 @@ class Node():
 def merge_two_linked_lists(LL1, LL2):
     if not LL1.head or not LL2.head:
         if not LL1: 
-            return LL2
+            return LL2.head
         else:
-            return LL1
+            return LL1.head
+
+    currA = LL1.head
+    currB = LL2.head
+    LL3 = LinkedList(Node(0))
 
     #while currA  and currB
+    while currA and currB:
         #if currA <= currB:
             #add to currA to LL3
-            #update pointer to currA
+
+        if currA.value <= currB.value:
+            LL3.tail.next = currA
+            LL3.tail = currA
+            currA = currA.next
+
+        else:
         #else:
-            #add to currB to L:3
+            #add to currB to LL3
+            if not LL3.head:
+                LL3.head = currB
+                LL3.tail = currB
             #update pointer to currB
+            LL3.tail.next = currB
+            LL3.tail = currB
+            currB = currB.next
 
     #handle when length of LL different list
-    #if LL1:
-        #traverse LL1 and add to LL3
-    #else:
-        #traverse LL2 and add to LL3LL1
+    if currA:
+        while currA:
+            #traverse LL1 and add to LL3
+           LL3.tail.next = currA
+           LL3.tail = currA
+           currA = currA.next
+
+    else:
+        #traverse LL2 and add to LL3
+        while currB:
+            LL3.tail.next = currB
+            LL3.tail = currB
+            currB = currB.next
+
+    return LL3.head.next
 
 
 
