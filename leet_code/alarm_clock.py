@@ -13,41 +13,8 @@
 # calculate the minimum number of shifts required to turn setTime into timeToSet.
 
 # Example:
-
-# For setTime = "07:30" and timeToSet = "08:00", the output should be
-# alarmClock(setTime, timeToSet) = 31.
-
-# Shifting hours upwards once will change the alarm to "08:30", and 
-# shifting minutes 30 times downwards will change it to "08:00".
-
-# For setTime = "23:45" and timeToSet = "08:00", the output should be
-# alarmClock(setTime, timeToSet) = 24.
-
-# You can shift hours upwards 9 times to change the alarm to "08:45", and 
-# shift minutes upwards 15 times to change it to "08:00".
-
-# Input/Output
-# [execution time limit] 4 seconds (py3)
-# [input] string setTime
-
-# Time your alarm clock is set to in the "hh:mm" format.
-
-# Guaranteed constraints:
-# 0 ≤ hh ≤ 23,
-# 0 ≤ mm ≤ 59.
-
-# [input] string timeToSet
-
-# Time you want to set alarm to given in the same format as setTime.
-
-# Guaranteed constraints:
-# 0 ≤ hh ≤ 23,
-# 0 ≤ mm ≤ 59.
-
-# [output] integer
-
-# The minimum number of shifts required to change setTime to timeToSet.
-# [Python3] Syntax Tips
+# alarmClock("07:30", "08:00") = 31.
+# alarmClock("23:45", "08:00") = 24
 
 
 def alarmClock(setTime, timeToSet):
@@ -58,8 +25,8 @@ def alarmClock(setTime, timeToSet):
     print(h1,h2,m1,m2)
     # determine hour clicks
     hour_diff = abs(int(h1) - int(h2))
-    if hour_diff > 6:
-        hour_diff = 12 - hour_diff
+    if hour_diff > 12:
+        hour_diff = 24 - hour_diff
 
     clicks += hour_diff
 
@@ -74,10 +41,10 @@ def alarmClock(setTime, timeToSet):
     #clicks = absolute value of min1 - min2
     return clicks
 
-setTime = "09:30" 
-timeToSet = "01:00"
+setTime = "07:30" 
+timeToSet = "08:00"
 print(alarmClock(setTime, timeToSet))
 
-setTime = "08:00" 
-timeToSet = "01:45"
+setTime = "23:45" 
+timeToSet = "08:00"
 print(alarmClock(setTime, timeToSet))
