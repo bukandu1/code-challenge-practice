@@ -1,5 +1,4 @@
-# You're exhausted after a long day of baking a Christmas turkey and heading to bed, 
-# but you still have to set the alarm clock on your iPhone to timeToSet. 
+# You're exhausted after a long day but you still have to set the alarm clock.
 # You already have one you set the day before to setTime, so all you have to do is 
 # update it.
 
