@@ -12,7 +12,7 @@ class Solution:
         if s[-1] == " ":
             return 1
 
-        #split string on the spaces & look at last item in list
+        #split string on the spaces & look at last item in list.
         return len(s.split(' ')[-1])
 
 class TestLastWordLength(unittest.TestCase):
