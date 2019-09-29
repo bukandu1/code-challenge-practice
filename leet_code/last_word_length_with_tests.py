@@ -3,12 +3,15 @@ import unittest
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         #return 0 if space or null
-        if s == ' ' or not s:
+        if not s:
+            return 0
+        
+        if len(s.split()) == 0:
             return 0
 
         if s[-1] == " ":
             return 1
-            
+
         #split string on the spaces & look at last item in list
         return len(s.split(' ')[-1])
 
@@ -31,4 +34,7 @@ class TestLastWordLength(unittest.TestCase):
         sol = Solution()
         self.assertEqual(sol.lengthOfLastWord("a "), 1)
        
+    def test_withEndWithSpace(self):
+        sol = Solution()
+        self.assertEqual(sol.lengthOfLastWord("   "), 0)
 
