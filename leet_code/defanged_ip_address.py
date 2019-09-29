@@ -17,3 +17,6 @@ class Solution:
 
     # Alternative
         return address.replace('.', '[.]')
+
+    # Runtime: 36 ms, faster than 64.89% of Python3 online submissions for Defanging an IP Address.
+    # Memory Usage: 13.9 MB, less than 100.00 % of Python3 online submissions for Defanging an IP Address.
