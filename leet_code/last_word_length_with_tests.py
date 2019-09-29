@@ -1,19 +1,32 @@
 import unittest
 
 class Solution:
+""" 
+Runtime: 32 ms, faster than 90.06% of Python3 online submissions for Length of Last Word.
+Memory Usage: 13.9 MB, less than 5.26% of Python3 online submissions for Length of Last Word.
+
+"""
     def lengthOfLastWord(self, s: str) -> int:
-        #return 0 if space or null
+        #return 0 if null
         if not s:
             return 0
-        
-        if len(s.split()) == 0:
+
+        #split string on the spaces
+        s_list = s.split(' ')
+
+        if len(''.join(s_list)) == 0:
             return 0
 
-        if s[-1] == " ":
-            return 1
+        if s_list[-1] == '':
+            i = -1
+            while (s_list[i] == ''):
+                i -= 1
 
-        #split string on the spaces & look at last item in list.
-        return len(s.split(' ')[-1])
+            print(s_list)
+            return len(s_list[i])
+
+        #look at last item in list
+        return len(s_list[-1])
 
 class TestLastWordLength(unittest.TestCase):
 
@@ -32,9 +45,9 @@ class TestLastWordLength(unittest.TestCase):
 
     def test_withEndWithSpace(self):
         sol = Solution()
-        self.assertEqual(sol.lengthOfLastWord("a "), 1)
+        self.assertEqual(sol.lengthOfLastWord("a    "), 1)
        
-    def test_withEndWithSpace(self):
+    def test_withOnlySpaces(self):
         sol = Solution()
         self.assertEqual(sol.lengthOfLastWord("   "), 0)
 
