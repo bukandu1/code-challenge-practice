@@ -27,7 +27,7 @@ class Solution:
         self.length = -1
         index = 0
         
-        find_helper(self.prev_node, self.current_node, index)
+        find_helper(self.prev_node, self.current_node, index, n)
         
         # while counter != n:
         #     prev = current
@@ -39,7 +39,7 @@ class Solution:
         
         return head
         
-    def find_helper(self, prev, current, index):
+    def find_helper(self, prev, current, index, n):
         if not current.next:
             self.length = index
             return self.length
