@@ -4,47 +4,40 @@
 #         self.val = x
 #         self.next = None
 
+# Runtime: 32 ms, faster than 97.12% of Python3 online submissions for Remove Nth Node From End of List.
+# Memory Usage: 13.8 MB, less than 6.06 % of Python3 online submissions for Remove Nth Node From End of List.
+
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         """
-        To remove: 
-        while  counter != n:
-            move to next node
-            
-        when nth node found, remove
-            prev.next = current.next
-            
+            i and j pointers
+            Move j n away (so that i and j are n apart)
+            Move i and j pointers until j == null
+            remove i node
+            return head
         """
         if not head:
             return None
-        
-        #if first node needs to be removed
-        if n == 0:
+
+        i = head
+        j = head
+
+        for num in range(n):
+            j = j.next
+
+        while j:
+            i_prev = i
+            i = i.next
+            j = j.next
+
+        #print("i = ", i.val)
+
+        #if the first node is still the head, return the second node as the head
+        if i == head:
             return head.next
-        
-        self.prev_node = head
-        self.current_node = head
-        self.length = -1
-        index = 0
-        
-        find_helper(self.prev_node, self.current_node, index, n)
-        
-        # while counter != n:
-        #     prev = current
-        #     current = current.next
-        #     counter += 1
-        
-        
-        self.prev_node.next = self.current_node.next
-        
-        return head
-        
-    def find_helper(self, prev, current, index, n):
-        if not current.next:
-            self.length = index
-            return self.length
+        elif not i:
+            i_prev.next = None
         else:
-            if self.length - n - 1 == index:
-                self.prev_node = prev
-                self.current_node = current
-            return find_helper(current, current.next, index+1)
+            i_prev.next = i.next
+
+        return head
