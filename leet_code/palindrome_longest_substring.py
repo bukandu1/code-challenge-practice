@@ -22,6 +22,6 @@ class Solution:
 
         return current_max
 
-    # more optimal solution
+    # more optimal solutiongit
     def longestPalindromeopt(self, s: str) -> str:
         return

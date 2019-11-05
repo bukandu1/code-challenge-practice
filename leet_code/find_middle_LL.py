@@ -3,7 +3,6 @@ Given the head of a non-empty, singly linked list, return the middle node of the
 If there are two middle nodes, return the second middle node.
 
 1->4->2->7->5 returns 2
-
 """
 class Node():
     def __init__(self, value):
