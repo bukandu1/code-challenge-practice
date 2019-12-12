@@ -7,7 +7,7 @@ class Solution:
         file = open(textfile, 'r')
         sum = 0
         for line in file:
-            sum += int(line)
+            sum += int(line) // 3 - 2
 
         print(sum)
 
@@ -16,7 +16,9 @@ class Solution:
 
 class TestStringMethods(unittest.TestCase):
     def test_mass(self):
-        self.assertEqual(Solution().fuel_mass("day_01_fuel_mass.txt"), 9827258)
+        self.assertNotEqual(Solution().fuel_mass("day_01_fuel_mass.txt"), 9827258)
+        self.assertEqual(Solution().fuel_mass(
+            "day_01_fuel_mass.txt"), 3275518)
 
     def test_file(self):
         self.assertTrue('FOO'.isupper())
