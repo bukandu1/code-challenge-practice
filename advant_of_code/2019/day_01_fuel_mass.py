@@ -16,9 +16,10 @@ class Solution:
 
     def deplete_fuel(self, textfile):
         file = open(textfile, "r")
-        sum = 0 
         mass = int(file.readline())
         fuel = mass // 3 - 2
+        sum = fuel
+        
         while mass >= fuel:
             
             sum += fuel
