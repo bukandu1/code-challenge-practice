@@ -31,6 +31,8 @@ class Solution:
 
             elif happy_num in seen_set:
                 return False
+                
+        return True
 
 
 class TestHappyNumber(unittest.TestCase):
@@ -54,7 +56,7 @@ class TestHappyNumber(unittest.TestCase):
     def test_happyNumberTrueOneDigit(self):
         happy_number = 1
         result = self.s.happy_number(happy_number)
-        self.assertFalse(result)
+        self.assertTrue(result)
 
     def test_happyNumberFalseOneDigit(self):
         happy_number = 2
