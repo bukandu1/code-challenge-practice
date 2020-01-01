@@ -19,14 +19,9 @@ class Solution:
         mass = int(file.readline())
         fuel = mass // 3 - 2
         sum = fuel
-        
-        while mass >= fuel:
-            
-            sum += fuel
-            if mass >= fuel:
-                mass -= fuel
-            else: 
-                break
+
+        while mass > 0:
+            mass -= fuel
     
             mass = int(file.readline())
             fuel = mass // 3 - 2
