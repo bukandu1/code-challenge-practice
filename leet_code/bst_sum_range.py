@@ -22,3 +22,7 @@ class Solution:
 
         sum_array = []
         return sum(helper(root, L, R, sum_array))
+
+
+# Runtime: 268 ms, faster than 42.52 % of Python3 online submissions for Range Sum of BST.
+# Memory Usage: 20.7 MB, less than 100.00 % of Python3 online submissions for Range Sum of BST.
