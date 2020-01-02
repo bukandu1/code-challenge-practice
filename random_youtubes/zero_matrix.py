@@ -14,20 +14,31 @@ class Solution:
         for i in range(0, n):
             mat[row][i] = 0
             mat[i][row] = 0
-            
+
         """
+
+        return True
 
 
 class TestZeroMatric(unittest.TestCase):
-    def TestNEqualOneNoAZeros(self, mat):
-        pass
+    def setUp(self):
+        self.s = Solution
 
-    def TestNEqualOneWithZero(self, mat):
-        pass
+    def TestNEqualOneNoAZeros(self):
+        mat = [1]
 
-    def TestNEqualTwoWithZero(self, mat):
-        pass
+    def TestNEqualOneWithZero(self):
+        mat = [0]
 
-    def TestNEqualThreeWithZero(self, mat):
-        pass
+    def TestNEqualTwoWithZero(self):
+        mat = [[1,1,],
+               [1,1,]]
+
+        result = self.s.zero_matrix(mat)
+        
+
+    def TestNEqualThreeWithZero(self):
+        mat = [[1, 1, 1],
+               [1, 1, 1],
+               [1, 0, 1]]
 
