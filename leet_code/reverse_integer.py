@@ -2,16 +2,11 @@ class Solution:
     """
     Runtime: 24 ms, faster than 93.56% of Python3 online submissions for Reverse Integer.
     Memory Usage: 12.7 MB, less than 100.00% of Python3 online submissions for Reverse Integer.
-    Next challenges:
+
     """
     def reverse(self, x: int) -> int:
         #if x <= -2 ** 31 or x >= 2 ** 31 - 1:
         #    return 0
-        
-        negative = False
-        # determine if x is neg
-        if x < 0:
-            negative = True
         
         sum = 0
         multiplier = 1
