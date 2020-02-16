@@ -1,5 +1,10 @@
 # 102. Binary Tree Level Order Traversal
 
+# Runtime: 28 ms, faster than 91.77 % of Python3 online submissions 
+# for Binary Tree Level Order Traversal.
+# Memory Usage: 13 MB, less than 100.00 % of Python3 online 
+# submissions for Binary Tree Level Order Traversal.
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
