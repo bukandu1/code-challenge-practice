@@ -5,22 +5,42 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def countUnivalSubtrees(self, root: TreeNode) -> int:
-        if not root: 
+        if not root:
             return 0
-        
-        def dfs(root, count):
+
+        self.count = 0
+
+        def dfs(root):
             # base case: if leaf, it is unival
             if not root.left and not root.right:
+                self.count += 1
                 return True
-            
+
+            isUnival = True
             # recursive: traverse to child(ren) and determin if each is unival, return True or False
             # compare each child to root to determine if unival
-            
+            if root.left:
+                leftST = dfs(root.left)
+                if not leftST or root.left.val != root.val:
+                    isUnival = False
+                print('root.left.val', root.left.val, 'root val',
+                      root.val, isUnival, 'count', self.count)
+
+            if root.right:
+                rightST = dfs(root.right)
+                if not rightST or root.right.val != root.val:
+                    isUnival = False
+                print('root.right.val', root.right.val, 'root val',
+                      root.val, isUnival, 'count', self.count)
+
             # if subtree, unival, increment count
-            return count
-        
-        
-        return dfs(root, 0)
-        
+            if isUnival:
+                self.count += 1
+
+            return isUnival
+
+        dfs(root)
+        return self.count
