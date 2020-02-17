@@ -23,4 +23,24 @@ class Solution:
         
         """
 
+        def helper(A, start, end):
+            if start > end:
+                return None
+            if start == end:
+                return TreeNode(A[start])
+
+            else:
+                mid = int((start + end)/2)
+                print('mid:', mid)
+                rootnode = TreeNode(A[mid])
+
+                rootnode.left = helper(A, start, mid-1)
+                rootnode.right = helper(A, mid+1, end)
+
+                return rootnode
+
         return helper(nums, 0, len(nums) - 1)
+
+
+# LC: 108 Runtime: 72 ms, faster than 65.94 % of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
+# Memory Usage: 14.8 MB, less than 100.00 % of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
