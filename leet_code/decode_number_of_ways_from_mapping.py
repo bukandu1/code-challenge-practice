@@ -19,33 +19,28 @@ def decode(mapping, msg):
             # decode current and remain. if current and/or remain in mapping
             # save to string, else do not save
             new_string = ""
-            print('current/remain', current, remain)
-            if current and int(current) in mapping:
-                key1 = int(current)
-                new_string += mapping[key1]
-            if remain and int(remain) in mapping:
-                key2 = int(remain)
-                new_string += mapping[key2]
+            if current in mapping:
+                new_string += mapping[current]
+            if remain in mapping:
+                new_string += mapping[remain]
 
             print(new_string)
-            encode_set.add(new_string)
-            print(encode_set)
+            if new_string:
+                encode_set.add(new_string)
+            print("current/remain:",current, remain)
             return helper(current + remain[0], remain[1:])
 
     if not msg:
-        return msg
+        return 0
 
     encode_set=set()
 
     for i in range(len(msg)):
-        print("".join(msg[0:i]), msg[i:])
         helper("".join(msg[0:i]), msg[i:])
     
     return len(encode_set)
 
-
-# alpha = dict(zip(range(1, 27), string.ascii_lowercase))
 alpha = {str(i): ch for i, ch in enumerate(string.ascii_lowercase, start=1)}
-print(decode(alpha, "111"))
+print(decode(alpha, "1211"))
 # print(alpha)
 
